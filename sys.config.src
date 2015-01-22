@@ -1,0 +1,18 @@
+﻿%%%----------------------------------------------------------------------------
+%%% @author yangdy <anvilhorn@163.com>
+%%%  [http://github.com/yangdy]
+%%% @copyright 2015 yangdy
+%%% @doc
+%%%  Configuration of application.
+%%% @end
+%%%----------------------------------------------------------------------------
+[
+ {sasl,
+  [
+   {sasl_error_logger, {file, "/tmp/demo.sasl_log"}}
+  ]},
+ {demo,
+  [
+   {nodes, ['node1@erlbox', 'node2@erlbox']}
+ ]}
+].

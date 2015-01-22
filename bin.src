@@ -1,0 +1,10 @@
+#!/bin/sh
+../erts-6.2/bin/erl \
+    -sname Nodename \
+    -boot ../releases/App-Version/start \
+    -config ../releases/App-Version/sys \
+    -detached
+
+# @author yangdy <anvilhorn@163.com>
+#  [http://github.com/yangdy]
+# @copyright 2015 yangdy

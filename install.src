@@ -1,0 +1,8 @@
+#!/bin/sh
+ROOT=`pwd`
+DIR=./erts-6.2/bin
+sed s:%FINAL_ROOTDIR%:$ROOT: $DIR/erl.src > $DIR/erl
+
+# @author yangdy <anvilhorn@163.com>
+#  [http://github.com/yangdy]
+# @copyright 2015 yangdy

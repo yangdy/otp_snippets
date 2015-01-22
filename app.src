@@ -1,0 +1,16 @@
+%%%----------------------------------------------------------------------------
+%%% @author yangdy <anvilhorn@163.com>
+%%%  [http://github.com/yangdy]
+%%% @copyright 2015 yangdy
+%%% @doc
+%%%  Speficication of application.
+%%% @end
+%%%----------------------------------------------------------------------------
+{application, X,
+ [{description, ""},
+  {vsn, "1"},
+  {modules, []},
+  {registered, []},
+  {applications, [kernel, stdlib]},
+  {mod, {X, []}}
+ ]}.

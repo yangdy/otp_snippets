@@ -1,0 +1,16 @@
+%%%----------------------------------------------------------------------------
+%%% @author yangdy <anvilhorn@163.com>
+%%%  [http://github.com/yangdy]
+%%% @copyright 2015 yangdy
+%%% @doc
+%%%  Release specification file of application.
+%%% @end
+%%%----------------------------------------------------------------------------
+{release,
+ {"X", "Versin"},
+ {erts, "6.2"},
+ [{kernel, "3.0.3"},
+  {stdlib, "2.2"},
+  {sasl, "2.4.1"},
+  {X, "Version"}
+ ]}.

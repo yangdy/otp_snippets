@@ -1,0 +1,58 @@
+%%%----------------------------------------------------------------------------
+%%% @author yangdy <anvilhorn@163.com>
+%%%  [http://github.com/yangdy]
+%%% @copyright 2015 yangdy
+%%% @doc
+%%%  This file is part of X.
+%%% @end
+%%%----------------------------------------------------------------------------
+-module(X).
+-behaviour(gen_fsm).
+
+%% API
+-export([start_link/0]).
+
+%% gen_fsm callbacks
+-export([init/1, handle_sync_event/4, handle_event/3, handle_info/3,
+         terminate/3, code_change/4]).
+
+-define(SERVER, ?MODULE).
+
+-record(state, {}).
+
+%%%============================================================================
+%%% API
+%%%============================================================================
+
+%%-----------------------------------------------------------------------------
+%% @doc Starts the fsm.
+%%
+%% @spec start_link() -> {ok, Pid}
+%% where
+%%  Pid = pid()
+%% @end
+%%-----------------------------------------------------------------------------
+start_link() ->
+    gen_fsm:start_link({local, ?SERVER}, ?MODLE, [], []).
+
+%%%============================================================================
+%%% gen_fsm callbacks
+%%%============================================================================
+
+init([]) ->
+    {ok, iniital_state, #state{}}.
+
+handle_sync_event(_Event, _From, StateName, StateData) ->
+    {next_state, ok, StateName, StateData}.
+
+handle_event(_Event, StateName, StateData) ->
+    {next_state, StateName, StateData}.
+
+handle_info(_Event, StateName, StateData) ->
+    {next_state, StateName, StateData}.
+
+terminate(_Reason, _StateName, _StateData) ->
+    ok.
+
+code_change(_OldVsn, StateName, StateDate, _Extra) ->
+    {ok, StateName, StateData}.

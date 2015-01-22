@@ -1,0 +1,47 @@
+%%%----------------------------------------------------------------------------
+%%% @author yangdy <anvilhorn@163.com>
+%%%  [http://github.com/yangdy]
+%%% @copyright 2015 yangdy
+%%% @doc
+%%%  This file is part of X supervisor.
+%%% @end
+%%%----------------------------------------------------------------------------
+-module(X).
+-behaviour(supervisor).
+
+%% API
+-export([start_link/0]).
+
+%% Supervisor callbacks
+-export([init/1]).
+
+-define(SERVER, ?MODULE).
+
+%-define(CHILD(I, TYPE), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
+
+%%%============================================================================
+%%% API
+%%%============================================================================
+
+%%-----------------------------------------------------------------------------
+%% @doc Starts a supervisor.
+%%
+%% @spec start_link() -> {ok, Pid}
+%%  where
+%%   Pid = pid()
+%% @end
+%%-----------------------------------------------------------------------------
+start_link() ->
+    supervisor:start_link({local, ?SERVER}, ?MODULE, []).
+
+
+%%%============================================================================
+%%% callbacks
+%%%============================================================================
+init([]) ->
+    Server = {X_server, {X_server, start_link, []},
+              permanent, 5000, worker, [X_server]},
+    Child = [Server],
+    RestartStrategy = {one_for_one, 0, 1},
+    {ok, {RestartStrategy, Child}}.
+
